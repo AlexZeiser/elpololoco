@@ -1,0 +1,422 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    background-image: url(./img/menu.jpg);
+    background-position: center;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    display: block;
+}
+
+#landscape-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2em;
+    z-index: 1000;
+}
+
+.panel {
+    display: none;
+    justify-content: space-between;
+    width: 90%;
+    position: absolute;
+    bottom: 20px;
+}
+
+#buttonsTop {
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+    padding-top: 8px;
+    width: 100%;
+    z-index: 10;
+}
+
+#fullscreenButton {
+    display: flex;
+    width: 40px;
+    height: 40px;
+}
+
+#overlay {    
+    display: flex;
+    justify-content: center;
+    pointer-events: none
+}
+
+.window {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#overlay,
+canvas {
+    width: 100%;
+    height: 100%;
+    /* pointer-events: none;
+    user-select: none; */
+}
+
+.panel-wrapper1 {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btnJump {
+    background-image: url('img/icon_top.png');
+}
+
+#btnLeft {
+    background-image: url('img/icon_left.png');
+}
+
+#btnRight {
+    background-image: url('img/icon_right.png');
+}
+
+#btnBottom {
+    background-image: url('img/icon_right.png');
+}
+
+#btnJump {
+    background-image: url('img/icon_top.png');
+}
+
+#btnThrow {
+    background-image: url('img/icon_throw.png');
+}
+
+#btnOpen {
+    background-image: url('img/icon_open.png');
+}
+
+#fullscreenButton {
+    background-image: url('img/fullscreen.png');
+}
+
+#soundStummButton {
+    background-image: url('img/soundOn.png');
+    width: 40px;
+    height: 40px;
+}
+
+.panel_btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.panel-wrapper2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btns {
+    pointer-events: auto;
+}
+
+.btns {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+#canvasDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.menu-options {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+#game_window_start {
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game_over {
+    text-align: center;
+    background-image: url(./img/gameover.png);
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#you_won {
+    text-align: center;
+    background-image: url(./img/9_intro_outro_screens/win/won_1.png);
+    background-position: center;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    flex-direction: column;
+}
+
+.spany {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+
+#coinsCount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border: 2px solid gold;
+    color: gold;
+    background-color: black;
+    width: 294px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+#optionen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #34495e;
+}
+
+#toMenu {
+    background-color: gold;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.buttonReturn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#optionenDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    width: 65%;
+}
+
+#optionenDiv h2 {
+    margin-bottom: 20px;
+    font-size: 44px;
+    color: #ecf0f1;
+}
+
+#steuerungListe {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    color: #ecf0f1;
+}
+
+#steuerungListe li {
+    margin: 10px 0;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.taste {
+    font-weight: bold;
+    color: #3498db;
+    background-color: #ecf0f1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.buttons {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    margin: 2px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#btn_start_game {
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.buttons:hover {
+    border: 2px solid white;
+    background-color: white;
+    color: black;
+}
+
+.jello-vertical {
+    animation: jello-vertical .9s both
+}
+
+#impressumMainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    background-color: orange;
+}
+
+#impressumDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100px;
+    font-size: 28px;
+}
+
+#impressum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    background-color: orange;
+}
+
+#impressum h1 {
+    font-size: 44px;
+}
+
+#datenschutzMainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    background-color: rgb(91, 47, 47);
+}
+
+#datenschutzDiv {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    padding: 10px;
+    min-height: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scrollbar-color: transparent transparent;
+    box-sizing: border-box;
+}
+
+#datenschutzDiv::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+#datenschutz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    background-color: rgb(91, 47, 47);
+}
+
+#datenschutz h1 {
+    font-size: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1)
+    }
+
+    30% {
+        transform: scale3d(.75, 1.25, 1)
+    }
+
+    40% {
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    50% {
+        transform: scale3d(.85, 1.15, 1)
+    }
+
+    65% {
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    75% {
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1)
+    }
+}

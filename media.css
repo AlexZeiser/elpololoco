@@ -1,0 +1,113 @@
+@media only screen and (max-width: 1920px) {
+    canvas {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-height: 1080px) {
+    canvas {
+        height: 100vh;
+    }
+}
+
+
+@media only screen and (max-width: 1500px) {
+    .panel {
+        display: flex;
+    }
+
+    #steuerungListe li {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #impressumDiv {
+        font-size: 20px;
+    }
+
+    .jello-vertical {
+        display: none;
+    }
+}
+
+@media (max-width: 1500px) {
+    .soundStummButton {
+        user-select: none;
+    }
+
+    #fullscreenButton {
+        user-select: none;
+    }
+
+    #toMenu {
+        user-select: none;
+    }
+}
+
+@media (max-width: 1368px) and (max-height: 912px) {
+    .btns {
+        width: 65px;
+        height: 65px;
+    }
+    .menu {
+        width: 250px;
+        height: 50px;
+    }
+    .buttons{
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 932px) and (max-height: 430px) {
+    .btns {
+        width: 40px;
+        height: 40px;
+    }
+    .menu {
+        width: 200px;
+        height: 50px;
+    }
+    .buttons{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 844px) and (max-height: 390px) {
+    .btns {
+        width: 35px;
+        height: 35px;
+    }
+    .menu {
+        width: 200px;
+        height: 50px;
+    }
+    .buttons{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 667px) and (max-height: 375px) {
+    .btns {
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu {
+        width: 200px;
+        height: 50px;
+    }
+    .buttons{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    #landscape-message {
+        display: flex;
+    }
+
+    #canvasDiv {
+        display: none;
+    }
+}

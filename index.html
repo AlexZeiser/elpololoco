@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/x-icon" href="img/2_character_pepe/5_dead/D-51.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <script src="js/mixins.js"></script>
+    <script src="models/drawable.class.js"></script>
+    <script src="models/character.class.js"></script>
+    <script src="models/player.class.js"></script>
+    <script src="models/hp_status_bar.class.js"></script>
+    <script src="models/munition_status_bar.class.js"></script>
+    <script src="models/coin_status_bar.class.js"></script>
+    <script src="models/enemy.class.js"></script>
+    <script src="models/chick.class.js"></script>
+    <script src="models/chicken.class.js"></script>
+    <script src="models/enemy.boss.class.js"></script>
+    <script src="models/coin.class.js"></script>
+    <script src="models/bottle.class.js"></script>
+    <script src="models/throwable.object.class.js"></script>
+    <script src="models/platform.class.js"></script>
+    <script src="models/box.class.js"></script>
+    <script src="models/finish.flag.class.js"></script>
+    <script src="models/cloud.class.js"></script>
+    <script src="models/muteButton.class.js"></script>
+    <script src="models/keyboard.class.js"></script>
+    <script src="models/background.class.js"></script>
+    <script src="models/level.class.js"></script>
+    <script src="models/world.class.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/gameTwo.js"></script>
+    <title>El Polo Loco</title>
+</head>
+
+<body id="body" onload="">
+
+    <div id="landscape-message">
+        <p>Bitte drehen Sie Ihr Gerät, um die Seite im Querformat zu nutzen.</p>
+    </div>
+
+    <div id="canvasDiv">
+        <canvas id="canvas" width="1920" height="1080" style="opacity: 0;"></canvas>
+        <div id="game_window_start" class="window">
+            <div id="start_game_div">
+                <h1 class="jello-vertical">GAME MENU</h1>
+                <div class="menu-options">
+                    <button class="buttons" onclick="startGame()">Start</button>
+                    <button class="buttons" onclick="showOptions()">Options</button>
+                    <button class="buttons" onclick="impressum()">Impressum</button>
+                    <button class="buttons" onclick="datenschutz()">Datenschutz</button>
+                    <button class="buttons" onclick="quitGame()">Quit</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="game_over" class="window" style="display: none;">
+            <button class="buttons menu" onclick="startGame()">Spiel Neustarten</button>
+            <button class="buttons menu" onclick="restartGame()">Zum Hauptmenü</button>
+        </div>
+
+        <div id="you_won" class="window" style="display: none;">
+            <div class="buttonReturn">
+                <button class="buttons menu" onclick="startGame()">Spiel Neustarten</button>
+                <button class="buttons menu" onclick="restartGame()">Zum Hauptmenü</button>
+            </div>
+            <div class="spany"><span id="coinsCount"></span></div>
+        </div>
+
+        <div id="impressum" class="window" style="display: none;">
+            <div class="buttonReturn">
+                <button class="buttons menu" onclick="restartGame()">Zum Hauptmenü</button>
+            </div>
+            <div id="impressumMainDiv">
+                <div id="impressumDiv">
+                    <h1>Impressum</h1>
+                    <span>Alex Zeiser</span>
+                    <span>Märkische Allee 156</span>
+                    <span>12681 Berlin</span>
+                    <h2>Kontakt</h2>
+                    <span><b>Telefon:</b> 017622695088</span>
+                    <span><b>E-Mail:</b> alex.zeiser.rest@gmail.com</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="datenschutz" class="window" style="display: none;">
+            <div class="buttonReturn">
+                <button class="buttons menu" onclick="restartGame()">Zum Hauptmenü</button>
+            </div>
+            <div id="datenschutzMainDiv">
+                <div id="datenschutzDiv">
+                    <h1>Datenschutz</h1>
+                    <span>Personal data (usually referred to just as „data“ below) will only be processed by us to the
+                        extent necessary and for the purpose of providing a functional and user-friendly website,
+                        including its contents, and the services offered there.
+                    </span><br>
+                    <span>Per Art. 4 No. 1 of Regulation (EU) 2016/679, i.e. the General Data Protection Regulation
+                        (hereinafter referred to as the „GDPR“), „processing“ refers to any operation or set of
+                        operations such as collection, recording, organization, structuring, storage, adaptation,
+                        alteration, retrieval, consultation, use, disclosure by transmission, dissemination, or
+                        otherwise making available, alignment, or combination, restriction, erasure, or destruction
+                        performed on personal data, whether by automated means or not.
+                    </span><br>
+                    <span>The following privacy policy is intended to inform you in particular about the type, scope,
+                        purpose, duration, and legal basis for the processing of such data either under our own control
+                        or in conjunction with others. We also inform you below about the third-party components we use
+                        to optimize our website and improve the user experience which may result in said third parties
+                        also processing data they collect and control.
+                    </span><br>
+                    <span>Our privacy policy is structured as follows:
+                    </span><br>
+                    <span>I. Information about us as controllers of your data
+                    </span><br>
+                    <span>II. The rights of users and data subjects
+                    </span><br>
+                    <span>III. Information about the data processing
+                    </span><br>
+                    <span><b>I. Information about us as controllers of your data</b>
+                    </span><br>
+                    <span>The party responsible for this website (the „controller“) for purposes of data protection law
+                        is:
+                    </span><br>
+                    <span>
+                        Alex Zeiser
+                        <br>
+                        Märkischen Allee 156
+                        <br>
+                        12681 Berlin
+                    </span><br>
+                    <span><b>II. The rights of users and data subjects
+                        </b></span><br>
+                    <span>With regard to the data processing to be described in more detail below, users and data
+                        subjects have the right
+                    </span><br>
+                    <span>- to confirmation of whether data concerning them is being processed, information about the
+                        data being processed, further information about the nature of the data processing, and copies of
+                        the data (cf. also Art. 15 GDPR);
+                    </span><br>
+                    <span>- to correct or complete incorrect or incomplete data (cf. also Art. 16 GDPR);
+                    </span><br>
+                    <span>- to the immediate deletion of data concerning them (cf. also Art. 17 DSGVO), or,
+                        alternatively, if further processing is necessary as stipulated in Art. 17 Para. 3 GDPR, to
+                        restrict said processing per Art. 18 GDPR;
+                    </span><br>
+                    <span>- to receive copies of the data concerning them and/or provided by them and to have the same
+                        transmitted to other providers/controllers (cf. also Art. 20 GDPR);
+                    </span><br>
+                    <span>- to file complaints with the supervisory authority if they believe that data concerning them
+                        is
+                        being processed by the controller in breach of data protection provisions (see also Art. 77
+                        GDPR).
+                    </span><br>
+                    <span>In addition, the controller is obliged to inform all recipients to whom it discloses data of
+                        any such corrections, deletions, or restrictions placed on processing the same per Art. 16, 17
+                        Para. 1, 18 GDPR. However, this obligation does not apply if such notification is impossible or
+                        involves a disproportionate effort. Nevertheless, users have a right to information about these
+                        recipients.
+                    </span><br>
+                    <span><b>Likewise, under Art. 21 GDPR, users and data subjects have the right to object to the
+                            controller’s future processing of their data pursuant to Art. 6 Para. 1 lit. f) GDPR. In
+                            particular, an objection to data processing for the purpose of direct advertising is
+                            permissible.
+                        </b>
+                    </span><br>
+                    <span><b>III. Information about the data processing
+                        </b>
+                    </span><br>
+                    <span>Your data processed when using our website will be deleted or blocked as soon as the purpose
+                        for its storage ceases to apply, provided the deletion of the same is not in breach of any
+                        statutory storage obligations or unless otherwise stipulated below.
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="optionen" class="window" style="display: none;">
+            <div class="buttonReturn">
+                <button class="buttons menu" onclick="restartGame()">Zum Hauptmenü</button>
+            </div>
+            <div id="optionenDiv">
+                <h2>Steuerung</h2>
+                <ul id="steuerungListe">
+                    <li><span class="taste">D</span> &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Nach rechts laufen</li>
+                    <li><span class="taste">A</span> &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Nach links laufen</li>
+                    <li><span class="taste">Space</span> &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Springen </li>
+                    <li><span class="taste">E</span> &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Öffnen </li>
+                    <li><span class="taste">F</span> &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; Flasche werfen</li>
+                    <br>
+                    <span style="color: gold;"><b>** Um höher zu springen, sollte man zuerst auf das Enemy
+                            springen.</b></span><br><br>
+                    <span style="color: gold;"><b>** Aus den geschlossenen Kisten werden Coins entnommen.</b></span>
+                </ul>
+            </div>
+        </div>
+        <div id="overlay" class="window">
+            <div id="buttonsTop">
+                <button id="toMenu" class="btns toMenu prevent-default" type="button" onclick="restartGame()"
+                    ontouchstart="restartGame()" draggable="false" style="display: none;">Menü</button>
+                <button id="soundStummButton" class="btns prevent-default" type="button" onclick="setAudio();"
+                    ontouchstart="setAudio()" draggable="false" style="display: none;">
+                </button>
+                <button id="fullscreenButton" class="btns prevent-default" type="button" onclick="fullscreen();"
+                    ontouchstart="fullscreen()" draggable="false" style="display: none;">
+                </button>
+            </div>
+            <div class="panel" id="panel" style="display: none;">
+                <div class="panel-wrapper panel-wrapper1">
+
+                    <div class="panel_btn">
+                        <button type="button" id="btnLeft" class="btns prevent-default" ontouchstart="leftStart(event)"
+                            ontouchend="leftEnd(event)" ontouchcancel="leftEnd(event)">
+                        </button>
+
+                        <button type="button" id="btnRight" class="btns prevent-default"
+                            ontouchstart="rightStart(event)" ontouchend="rightEnd(event)"
+                            ontouchcancel="rightEnd(event)">
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-wrapper panel-wrapper2">
+                    <button type="button" id="btnJump" class="btns prevent-default" onmousedown="jumpStart()"
+                        onmouseup="jumpEnd()" ontouchstart="jumpStart()" ontouchend="jumpEnd()"
+                        ontouchcancel="jumpEnd()">
+                    </button>
+                    <button type="button" id="btnThrow" class="btns prevent-default" onmousedown="throwStart()"
+                        onmouseup="throwEnd()" ontouchstart="throwStart()" ontouchend="throwEnd()"
+                        ontouchcancel="throwEnd()">
+                    </button>
+                    <button type="button" id="btnOpen" class="btns prevent-default" onmousedown="openStart()"
+                        onmouseup="openEnd()" ontouchstart="openStart()" ontouchend="openEnd()"
+                        ontouchcancel="openEnd()">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
