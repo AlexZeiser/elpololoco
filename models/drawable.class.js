@@ -154,7 +154,7 @@ class DrawableObject {
      */
     addToMap(ctx) {
         ctx.save();
-        if (this.isSeenBool) {
+        if (this.isSeenBool && !this.isLooted) {
             this.drawText(ctx);
         }
         if (this.hasFrame) {

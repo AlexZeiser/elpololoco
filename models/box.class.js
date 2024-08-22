@@ -25,7 +25,7 @@ class Box extends Platform {
         this.IMAGE_CLOSE = imageClose;
 
         if(this.isLooted){
-            this.loadImage(this.IMAGE_OPEN);
+            this.loadImage(this.IMAGE_OPEN);            
         }else {
             this.loadImage(this.IMAGE_CLOSE);
         }
